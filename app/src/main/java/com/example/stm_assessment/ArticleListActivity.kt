@@ -13,21 +13,21 @@ import com.example.stm_assessment.Models.Author
 
 class ArticleListActivity : AppCompatActivity() {
 
-    private lateinit var articleRecyclerView: RecyclerView
+    private lateinit var articleRV: RecyclerView
     private val articleList = mutableListOf<Article>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_article_list)
 
-        articleRecyclerView = findViewById(R.id.article_recycler_view)
+        articleRV = findViewById(R.id.article_recycler_view)
 
         // Add the sample articles here
         articleList.addAll(getSampleArticles())
 
         val adapter = ArticleAdapter(articleList)
-        articleRecyclerView.layoutManager = LinearLayoutManager(this)
-        articleRecyclerView.adapter = adapter
+        articleRV.layoutManager = LinearLayoutManager(this)
+        articleRV.adapter = adapter
     }
 
     private fun getSampleArticles(): List<Article> {

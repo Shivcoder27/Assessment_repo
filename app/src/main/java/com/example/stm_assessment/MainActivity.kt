@@ -9,14 +9,14 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var likedArticleTextView: TextView
+    private lateinit var likedArticle_title: TextView
     private lateinit var openArticleListButton: Button
 
     private val articleLikeResult =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == RESULT_OK) {
                 val likedArticleTitle = result.data?.getStringExtra("liked_article_title")
-                likedArticleTextView.text = "Liked Article: $likedArticleTitle"
+                likedArticle_title.text = "Liked Article: $likedArticleTitle"
             }
         }
 
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        likedArticleTextView = findViewById(R.id.liked_article_text)
+        likedArticle_title = findViewById(R.id.liked_article_text)
         openArticleListButton = findViewById(R.id.open_article_list_button)
 
         openArticleListButton.setOnClickListener {
